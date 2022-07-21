@@ -1,0 +1,16 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Computer-Science-Calculator' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Computer-Science-Calculator
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'IGListKit', '~> 4.0.0'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseCrashlytics'
+  pod 'FirebasePerformance'
+  pod 'Google-Mobile-Ads-SDK'
+  
+end
