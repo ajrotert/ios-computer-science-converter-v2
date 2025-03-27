@@ -17,7 +17,7 @@ class BannerAdViewCell : UICollectionViewCell {
 //    private static let BANNER_ID = "ca-app-pub-3940256099942544/2934735716" // TEST
     private static let BANNER_ID = "ca-app-pub-4411899771994288/8394799416"
     
-    private var bannerView: GADBannerView?
+    private var bannerView: BannerView?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -29,17 +29,17 @@ class BannerAdViewCell : UICollectionViewCell {
     
     public func setupBannerAdViewCell(rootViewController: UIViewController, width: CGFloat) {
         if bannerView == nil {
-            bannerView = GADBannerView(adSize: GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth(width))
+            bannerView = BannerView(adSize: portraitAnchoredAdaptiveBanner(width: width))
             bannerView?.adUnitID = BannerAdViewCell.BANNER_ID
             bannerView?.rootViewController = rootViewController
             bannerView?.delegate = self
-            bannerView?.load(GADRequest())
+            bannerView?.load(Request())
         }
     }
 }
 
-extension BannerAdViewCell : GADBannerViewDelegate {
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+extension BannerAdViewCell : BannerViewDelegate {
+    func bannerViewDidReceiveAd(_ bannerView: BannerView) {
         self.contentView.subviews.forEach { subview in
             subview.removeFromSuperview()
         }
@@ -49,7 +49,7 @@ extension BannerAdViewCell : GADBannerViewDelegate {
         }
     }
     
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+    func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
         print(error)
     }
 }

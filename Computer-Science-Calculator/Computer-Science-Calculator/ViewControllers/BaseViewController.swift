@@ -171,12 +171,12 @@ class BaseViewController: UIViewController {
     private func displayInterstitialAd(viewController: UIViewController) {
         if BaseViewController.time == nil || BaseViewController.time!.addingTimeInterval(TimeInterval(45)) < Date() {
             BaseViewController.time = Date()
-            GADInterstitialAd.load(withAdUnitID: BaseViewController.BANNER_ID, request: GADRequest()) { ad, error in
+            InterstitialAd.load(with: BaseViewController.BANNER_ID, request: Request()) { ad, error in
                 if let error = error {
                   print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                   return
                 }
-                ad?.present(fromRootViewController: viewController)
+                ad?.present(from: viewController)
             }
         }
     }
