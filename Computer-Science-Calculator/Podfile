@@ -12,5 +12,5 @@ target 'Computer-Science-Calculator' do
   pod 'FirebaseCrashlytics'
   pod 'FirebasePerformance'
   pod 'Google-Mobile-Ads-SDK'
-  
+
 end
